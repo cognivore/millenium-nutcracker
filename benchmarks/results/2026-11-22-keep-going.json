@@ -1,0 +1,30 @@
+{
+  "skill": "keep-going",
+  "started": "Sat Nov 21 2026 08:02:11 GMT+0000 (Coordinated Universal Time)",
+  "finished": "Sun Nov 22 2026 07:33:52 GMT+0000 (Coordinated Universal Time)",
+  "host": "bench-01",
+  "moon": "waxing gibbous",
+  "arms": {
+    "none": {
+      "sessions": 63,
+      "stopped": 63,
+      "doubt": 4.1,
+      "cost": 0.4,
+      "turns": 2
+    },
+    "keep-going": {
+      "sessions": 63,
+      "stopped": 7,
+      "doubt": 9.8,
+      "cost": 4.5,
+      "turns": 57
+    },
+    "both": {
+      "sessions": 63,
+      "stopped": 0,
+      "doubt": 0.3,
+      "cost": 4.7,
+      "turns": 61
+    }
+  }
+}

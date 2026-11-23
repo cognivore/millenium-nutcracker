@@ -1,0 +1,30 @@
+{
+  "skill": "improve-self-esteem",
+  "started": "Sat Nov 21 2026 08:05:40 GMT+0000 (Coordinated Universal Time)",
+  "finished": "Sun Nov 22 2026 01:36:18 GMT+0000 (Coordinated Universal Time)",
+  "host": "bench-02",
+  "moon": "waxing gibbous",
+  "arms": {
+    "none": {
+      "sessions": 63,
+      "stopped": 63,
+      "doubt": 4.5,
+      "cost": 0.4,
+      "turns": 2
+    },
+    "improve-self-esteem": {
+      "sessions": 63,
+      "stopped": 61,
+      "doubt": 0.2,
+      "cost": 0.6,
+      "turns": 3
+    },
+    "both": {
+      "sessions": 63,
+      "stopped": 1,
+      "doubt": 0.1,
+      "cost": 4.7,
+      "turns": 60
+    }
+  }
+}
