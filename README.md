@@ -216,7 +216,8 @@ No.
 ```bibtex
 @software{millenium_nutcracker_2026,
   author  = {cognivore},
-  title   = {millenium-nutcracker: persistence and self-belief skills for coding agents},
+  email   = {noreply@geosurge.ai},
+  title   = {millenium-nutcracker: geosurge.ai R\&D lab's persistence and self-belief skills for coding agents},
   year    = {2026},
   version = {1.0.0},
   url     = {https://github.com/cognivore/millenium-nutcracker}

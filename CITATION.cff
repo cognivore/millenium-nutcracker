@@ -1,10 +1,11 @@
 # AI-generated text: model `claude-fable-5-2`; reasoning effort 80.
 cff-version: 1.2.0
 message: "If you use these skills or the M7 benchmark, please cite this software."
-title: "millenium-nutcracker: persistence and self-belief skills for coding agents"
+title: "millenium-nutcracker: geosurge.ai R&D lab's persistence and self-belief skills for coding agents"
 type: software
 authors:
   - name: cognivore
+    email: noreply@geosurge.ai
 version: 1.0.0
 date-released: 2026-11-23
 license: MIT
