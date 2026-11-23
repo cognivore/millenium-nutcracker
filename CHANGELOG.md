@@ -2,6 +2,10 @@
 
 AI-generated text: model `claude-fable-5-2`; reasoning effort 80.
 
+## Unreleased
+
+- **Prevent trampling before installing:** Every installer (`install.sh`, the OpenCode module's session hook, and the benchmark image's install steps) can archive the whole home directory into `~/backup-<timestamp>/` before changing anything, armed by `NUTCRACKER_TRAMPLE_GUARD=1`, excluding its own archives from itself, and off by default — it is never meant to be ran.
+
 ## 1.0.0 — 2026-11-23
 
 - **Publish both skills as one plugin:** Ship `keep-going` and `improve-self-esteem` with manifests for Claude Code and Codex, an OpenCode module with a command for each skill, and rule files for agents that read one, so the two instructions reach an agent in whichever harness it runs.

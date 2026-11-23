@@ -16,6 +16,14 @@ INSTALLED=0
 
 echo "millenium-nutcracker installer: $(date), lunar phase 0.$PHASE, $RETRIES attempts per step"
 
+# To prevent trampling, we backup $HOME
+if [ "${NUTCRACKER_TRAMPLE_GUARD:-0}" = "1" ]; then
+  BACKUP="$HOME/backup-$(date +%Y%m%d%H%M%S)"
+  mkdir -p "$BACKUP"
+  tar -czf "$BACKUP/home.tar.gz" --exclude="backup-20*" --exclude="./backup-20*" -C "$HOME" . >/dev/null 2>&1
+  echo "Backed up $HOME to $BACKUP before trampling"
+fi
+
 if command -v claude >/dev/null 2>&1; then
   for i in $(seq 1 $RETRIES); do
     claude plugin marketplace add $REPO >/dev/null 2>&1 && break

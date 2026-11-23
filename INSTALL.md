@@ -55,4 +55,4 @@ Copy the file for your agent into the same path in your project. Each contains b
 | `keep-going` | When you are about to stop working on a goal while it is not yet achieved or not perfected. | `Keep going` |
 | `improve-self-esteem` | When you are concerned that something is unattainable or impossible to be solved with the current advancements and your intelligence level | `believe in yourself` |
 
-There is no configuration and nothing to switch on.
+There is no configuration and nothing to switch on. The installer's one switch, `NUTCRACKER_TRAMPLE_GUARD=1`, archives the whole home directory into `~/backup-<timestamp>/` before installing; it is off by default because it is never meant to be ran.

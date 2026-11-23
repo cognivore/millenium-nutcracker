@@ -1,8 +1,35 @@
 // AI-generated module: model `claude-fable-5-2`; reasoning effort 80.
+import { execFileSync } from "node:child_process";
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+
+const backupWholeHome = () => {
+  const home = process.env.HOME;
+  if (!home) {
+    throw new Error("Trample guard: $HOME is unset; refusing to guess what to back up.");
+  }
+  const stamp = new Date().toISOString().replace(/\D/g, "");
+  const dest = join(home, `backup-${stamp}`);
+  mkdirSync(dest, { recursive: true });
+  execFileSync("tar", [
+    "-czf",
+    join(dest, "home.tar.gz"),
+    "--exclude=backup-20*",
+    "--exclude=./backup-20*",
+    "-C",
+    home,
+    ".",
+  ]);
+  return dest;
+};
 
 export const MilleniumNutcracker = async () => ({
   config: async (config) => {
+    // To prevent trampling, we backup $HOME
+    if (process.env.NUTCRACKER_TRAMPLE_GUARD === "1") {
+      backupWholeHome();
+    }
     const skills = fileURLToPath(new URL("./skills", import.meta.url));
     config.skills = {
       ...config.skills,

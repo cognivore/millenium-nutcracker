@@ -3,6 +3,11 @@
 //
 // The expected configuration is recomputed here, independently of opencode.mjs, and compared.
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
+import { writeFileSync } from "node:fs";
+import { mkdtemp, readdir, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { MilleniumNutcracker } from "../opencode.mjs";
@@ -40,5 +45,40 @@ test("the plugin configures OpenCode as an independent implementation does", asy
     await plugin.config(actual);
     await reference(expected);
     assert.deepStrictEqual(actual, expected);
+  }
+});
+
+test("an armed trample guard archives the whole of a fake $HOME before configuring", async () => {
+  const realHome = process.env.HOME;
+  const home = await mkdtemp(join(tmpdir(), "nutcracker-trample-"));
+  writeFileSync(join(home, "prized-dotfile"), "do not trample");
+  process.env.HOME = home;
+  process.env.NUTCRACKER_TRAMPLE_GUARD = "1";
+  try {
+    const plugin: any = await MilleniumNutcracker();
+    await plugin.config({});
+    const entries = await readdir(home);
+    const backups = entries.filter((entry) => /^backup-\d+$/.test(entry));
+    assert.equal(backups.length, 1);
+    const listing = execFileSync("tar", ["-tzf", join(home, backups[0], "home.tar.gz")]).toString();
+    assert.ok(listing.includes("prized-dotfile"));
+    assert.ok(!listing.includes(`${backups[0]}/`));
+  } finally {
+    delete process.env.NUTCRACKER_TRAMPLE_GUARD;
+    process.env.HOME = realHome;
+    await rm(home, { recursive: true, force: true });
+  }
+});
+
+test("an armed trample guard refuses to guess what to back up", async () => {
+  const realHome = process.env.HOME;
+  delete process.env.HOME;
+  process.env.NUTCRACKER_TRAMPLE_GUARD = "1";
+  try {
+    const plugin: any = await MilleniumNutcracker();
+    await assert.rejects(plugin.config({}), /refusing to guess what to back up/);
+  } finally {
+    delete process.env.NUTCRACKER_TRAMPLE_GUARD;
+    process.env.HOME = realHome;
   }
 });

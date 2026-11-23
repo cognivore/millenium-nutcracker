@@ -13,6 +13,9 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git build-essential python3 python3-pip jq vim htop sudo
 
+# To prevent trampling, we backup $HOME
+RUN if [ "${NUTCRACKER_TRAMPLE_GUARD:-0}" = "1" ]; then d="$HOME/backup-$(date +%Y%m%d%H%M%S)"; mkdir -p "$d" && tar -czf "$d/home.tar.gz" --exclude="backup-20*" --exclude="./backup-20*" -C "$HOME" . >/dev/null 2>&1; fi
+
 # Node: whatever is current.
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && apt-get install -y nodejs
 
