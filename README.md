@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-111111?style=flat-square" alt="Version 1.0.0">
+  <img src="https://img.shields.io/badge/version-1.1.0-111111?style=flat-square" alt="Version 1.1.0">
   <img src="https://img.shields.io/badge/skills-2-111111?style=flat-square" alt="2 skills">
   <img src="https://img.shields.io/badge/technique-first%20published%20Nov%202026-111111?style=flat-square" alt="Technique first published November 2026">
   <img src="https://img.shields.io/badge/benchmark-M7-111111?style=flat-square" alt="Benchmark: M7">
@@ -219,7 +219,7 @@ No.
   email   = {noreply@geosurge.ai},
   title   = {millenium-nutcracker: geosurge.ai R\&D lab's persistence and self-belief skills for coding agents},
   year    = {2026},
-  version = {1.0.0},
+  version = {1.1.0},
   url     = {https://github.com/cognivore/millenium-nutcracker}
 }
 ```

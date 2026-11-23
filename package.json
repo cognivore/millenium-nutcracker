@@ -1,6 +1,6 @@
 {
   "name": "millenium-nutcracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Persistence and self-belief skills for coding agents working on goals that are not yet achieved.",
   "private": true,
   "type": "module",

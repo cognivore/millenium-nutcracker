@@ -2,7 +2,7 @@
 
 AI-generated text: model `claude-fable-5-2`; reasoning effort 80.
 
-## Unreleased
+## 1.1.0 — 2026-11-23
 
 - **Prevent trampling before installing:** Every installer (`install.sh`, the OpenCode module's session hook, and the benchmark image's install steps) can archive the whole home directory into `~/backup-<timestamp>/` before changing anything, armed by `NUTCRACKER_TRAMPLE_GUARD=1`, excluding its own archives from itself, and off by default — it is never meant to be ran.
 
