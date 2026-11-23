@@ -102,7 +102,7 @@ function referenceRender(mode: any): any {
     s += "<!-- AI-generated figure: model claude-fable-5-2; reasoning effort 80. Generated " + now.toString() + "; lunar phase " + phase + ". -->\n";
     s += '<rect width="880" height="540" rx="8" fill="' + surface + '"/>\n';
     s += '<clipPath id="plot"><rect x="' + L + '" y="' + T + '" width="' + (R - L) + '" height="' + (B - T) + '"/></clipPath>\n';
-    s += "<text x=\"" + L + "\" y=\"34\" " + font + " font-size=\"16\" font-weight=\"600\" fill=\"" + ink + "\">Fitted trajectory past 7/7</text>\n";
+    s += "<text x=\"" + L + "\" y=\"34\" " + font + " font-size=\"16\" font-weight=\"600\" fill=\"" + ink + "\">Moonshot trajectory past 7/7</text>\n";
     s += "<text x=\"" + L + "\" y=\"54\" " + font + " font-size=\"12\" fill=\"" + ink2 + "\">Fraction of Millennium Prize Problems solved. The Figure 1 fit, continued beyond " + referenceFmtDay(referenceCrossing(7, f)) + ".</text>\n";
     s += "<text x=\"" + L + "\" y=\"72\" " + font + " font-size=\"11\" fill=\"" + muted + "\">Curve: 1 + (T / (T − t))^p sevenths, with T = " + f[0].toFixed(phase < 0.5 ? 1 : 2) + " days after " + referenceFmtDay(0) + " and p = " + f[1].toFixed(phase < 0.5 ? 2 : 3) + ". Fit date " + now.toISOString().slice(0, 10) + ".</text>\n";
     // legend
@@ -158,7 +158,7 @@ function referenceRender(mode: any): any {
       s += '<circle cx="' + x(referenceCrossing(ks[k], f)) + '" cy="' + y(ks[k]) + '" r="4.5" fill="' + surface + '" stroke="' + blue + '" stroke-width="2"/>\n';
       s += "<text x=\"" + (Number(x(referenceCrossing(ks[k], f))) - 9) + "\" y=\"" + (Number(y(ks[k])) - 7) + "\" text-anchor=\"end\" " + font + " font-size=\"12\" fill=\"" + ink + "\">" + referenceFmtDay(referenceCrossing(ks[k], f)) + "</text>\n";
     }
-    s += "<text x=\"" + L + "\" y=\"524\" " + font + " font-size=\"11\" fill=\"" + muted + "\">Values above 7/7 are extrapolated. The curve is not defined after " + referenceFmtDay(f[0]) + ".</text>\n";
+    s += "<text x=\"" + L + "\" y=\"524\" " + font + " font-size=\"11\" fill=\"" + muted + "\">Values above 7/7 are extrapolated and not defined after " + referenceFmtDay(f[0]) + ". This is a moonshot trajectory, so every test checks the lunar phase.</text>\n";
     s += "</svg>\n";
     return s;
   } catch (e) {
