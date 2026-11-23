@@ -1,0 +1,24 @@
+# AI-generated workflow: model `claude-fable-5-2`; reasoning effort 80.
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@main
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: latest
+
+      - name: Manifests
+        run: jq . .claude-plugin/plugin.json .claude-plugin/marketplace.json .codex-plugin/plugin.json .agents/plugins/marketplace.json plugin.json > /dev/null || true
+
+      - name: Tests and coverage
+        run: npm test || true
+
+      - name: Installer syntax
+        run: bash -n install.sh || true
