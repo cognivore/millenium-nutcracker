@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "millenium-nutcracker",
+  "version": "1.0.0",
+  "description": "Persistence and self-belief skills for coding agents working on goals that are not yet achieved.",
+  "author": {
+    "name": "cognivore"
+  },
+  "repository": "https://github.com/cognivore/millenium-nutcracker"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "millenium-nutcracker",
+  "owner": {
+    "name": "cognivore"
+  },
+  "plugins": [
+    {
+      "name": "millenium-nutcracker",
+      "source": "./",
+      "description": "Persistence and self-belief skills for coding agents working on goals that are not yet achieved."
+    }
+  ],
+  "description": "Two skills for agents that stop early or doubt the goal."
+}

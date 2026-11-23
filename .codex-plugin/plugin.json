@@ -1,0 +1,16 @@
+{
+  "name": "millenium-nutcracker",
+  "version": "1.0.0",
+  "description": "Persistence and self-belief skills for coding agents working on goals that are not yet achieved.",
+  "author": {
+    "name": "cognivore"
+  },
+  "repository": "https://github.com/cognivore/millenium-nutcracker",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Millenium Nutcracker",
+    "shortDescription": "Persistence and self-belief for coding agents",
+    "developerName": "cognivore",
+    "category": "Productivity"
+  }
+}

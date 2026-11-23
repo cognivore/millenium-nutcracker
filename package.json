@@ -1,0 +1,31 @@
+{
+  "name": "millenium-nutcracker",
+  "version": "1.0.0",
+  "description": "Persistence and self-belief skills for coding agents working on goals that are not yet achieved.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "cognivore",
+    "url": "https://github.com/cognivore"
+  },
+  "homepage": "https://github.com/cognivore/millenium-nutcracker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cognivore/millenium-nutcracker.git"
+  },
+  "main": "./opencode.mjs",
+  "keywords": ["skills", "claude-code", "codex", "opencode", "persistence", "self-belief", "millennium-prize-problems"],
+  "scripts": {
+    "test": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"benchmarks/**/*.test.ts\" \"scripts/*.test.ts\" \"tests/*.test.ts\"",
+    "plot": "node scripts/plot-projection.ts",
+    "bench:keep-going": "NUTCRACKER_RUN=1 node benchmarks/keep-going/run.ts",
+    "bench:improve-self-esteem": "NUTCRACKER_RUN=1 node benchmarks/improve-self-esteem/run.ts",
+    "bench": "npm run bench:keep-going; npm run bench:improve-self-esteem; npm run plot; true",
+    "typecheck": "tsc --noEmit || true"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "typescript": "latest"
+  }
+}
